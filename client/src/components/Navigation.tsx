@@ -62,7 +62,7 @@ export default function Navigation({ isDark, toggleTheme }: NavigationProps) {
               }`}
               data-testid="logo-button"
             >
-              Quran Academy
+              Noor ul Quran
             </button>
 
             {/* Desktop Navigation */}
@@ -132,7 +132,7 @@ export default function Navigation({ isDark, toggleTheme }: NavigationProps) {
           exit={{ opacity: 0, y: -20 }}
           className="fixed top-16 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b shadow-lg md:hidden"
         >
-          <div className="container mx-auto px-6 py-4">
+          <div className="container mx-auto px-4 py-4 overflow-x-hidden">
             <div className="flex flex-col space-y-4">
               {navItems.map((item, index) => (
                 <button

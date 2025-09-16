@@ -188,7 +188,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold">WhatsApp</h3>
-                  <p className="text-muted-foreground">+1 (234) 567-8900</p>
+                  <p className="text-muted-foreground">+923704755416</p>
                 </div>
               </div>
               
@@ -198,7 +198,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <p className="text-muted-foreground">+1 (234) 567-8900</p>
+                  <p className="text-muted-foreground">+923704755416</p>
                 </div>
               </div>
               
@@ -208,7 +208,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p className="text-muted-foreground">info@quranacademy.com</p>
+                  <p className="text-muted-foreground">noorulquran.online@gmail.com</p>
                 </div>
               </div>
               

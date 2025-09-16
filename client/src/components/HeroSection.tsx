@@ -12,7 +12,7 @@ export default function HeroSection() {
     <section
       className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${islamicPatternBg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${islamicPatternBg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, MessageCircle, Phone } from 'lucide-react';
 
 export default function FooterSection() {
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: MessageCircle, href: "#", label: "Whatsapp" },
+    { icon: Facebook, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
     { icon: Youtube, href: "#", label: "YouTube" }
   ];
@@ -49,11 +49,11 @@ export default function FooterSection() {
               <div className="flex items-center space-x-4 text-sm">
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4" />
-                  <span>+1 (234) 567-8900</span>
+                  <span>+923704755416</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail className="w-4 h-4" />
-                  <span>info@quranacademy.com</span>
+                  <span>noorulquran.online@gmail.com</span>
                 </div>
               </div>
             </motion.div>
@@ -118,7 +118,7 @@ export default function FooterSection() {
               transition={{ duration: 0.6 }}
               className="text-primary-foreground/60 text-sm mb-4 md:mb-0"
             >
-              © {new Date().getFullYear()} Quran Academy Online. All rights reserved.
+              © {new Date().getFullYear()} Noor-ul-Quran. All rights reserved.
             </motion.p>
             
             <motion.div
