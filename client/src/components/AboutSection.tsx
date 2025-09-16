@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Heart, Users, Award } from "lucide-react";
-import teacherImg from "@assets/generated_images/Online_Quran_teacher_illustration_7f3d0099.png";
+import teacherImg from "@assets/generated_images/a.jpeg";
 
 export default function AboutSection() {
   const features = [

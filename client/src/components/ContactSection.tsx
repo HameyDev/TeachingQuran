@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useMutation } from '@tanstack/react-query';
-import quranImg from '@assets/generated_images/Open_Quran_with_calligraphy_7f785852.png';
+import quranImg from '@assets/generated_images/b.jpeg';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
