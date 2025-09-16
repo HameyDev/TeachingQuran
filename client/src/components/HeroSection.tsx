@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import islamicPatternBg from '@assets/generated_images/Islamic_geometric_pattern_background_3c408123.png';
+import islamicPatternBg from '@assets/generated_images/islamic.jpg';
 
 export default function HeroSection() {
   const handleJoinNow = () => {
