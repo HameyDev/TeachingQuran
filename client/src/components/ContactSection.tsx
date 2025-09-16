@@ -8,7 +8,6 @@ import { Label } from '@/components/ui/label';
 import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useMutation } from '@tanstack/react-query';
-import { apiRequest } from '@/lib/queryClient';
 import quranImg from '@assets/generated_images/Open_Quran_with_calligraphy_7f785852.png';
 
 export default function ContactSection() {
@@ -21,13 +20,20 @@ export default function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      return await apiRequest('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        body: JSON.stringify(data),
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw errorData;
+      }
+
+      return await response.json();
     },
     onSuccess: (response) => {
       toast({
