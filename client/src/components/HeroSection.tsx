@@ -1,20 +1,20 @@
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import islamicPatternBg from '@assets/generated_images/islamic.jpg';
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import islamicPatternBg from "@assets/generated_images/islamic.jpg";
 
 export default function HeroSection() {
   const handleJoinNow = () => {
     // Scroll to contact section
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/90 to-primary text-white overflow-hidden"
+    <section
+      className="relative min-h-screen flex items-center justify-center text-white overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(34, 139, 69, 0.85), rgba(34, 139, 69, 0.85)), url(${islamicPatternBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${islamicPatternBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       {/* Content */}
@@ -28,13 +28,14 @@ export default function HeroSection() {
             Learn Qur'an Online with <br />
             <span className="text-chart-2">Expert Teachers</span>
           </h1>
-          
+
           <p className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-            Join thousands of students worldwide in our structured Islamic education program. 
-            Learn from qualified teachers with flexible timing and personalized guidance.
+            Join thousands of students worldwide in our structured Islamic
+            education program. Learn from qualified teachers with flexible
+            timing and personalized guidance.
           </p>
-          
-          <Button 
+
+          <Button
             onClick={handleJoinNow}
             size="lg"
             className="bg-chart-2 hover:bg-chart-2/90 text-foreground font-semibold px-8 py-4 text-lg rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
@@ -44,9 +45,9 @@ export default function HeroSection() {
           </Button>
         </motion.div>
       </div>
-      
+
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-18 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
