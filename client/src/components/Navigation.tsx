@@ -104,41 +104,22 @@ export default function Navigation({ isDark, toggleTheme }: NavigationProps) {
               )}
             </div>
 
-            <div className="flex gap-2">
-              {/* Mobile Theme Toggle */}
-              {toggleTheme && (
-                <Button
-                  variant="ghost"
-                  onClick={toggleTheme}
-                  className="justify-start p-2 text-foreground hover:text-primary"
-                  data-testid="mobile-theme-toggle"
-                >
-                  {isDark ? (
-                    <Sun className="w-5 h-5 mr-2" />
-                  ) : (
-                    <Moon className="w-5 h-5 mr-2" />
-                  )}
-                  {isDark ? "Light Mode" : "Dark Mode"}
-                </Button>
-              )}
-              <Button
-                variant="ghost"
-                size="icon"
-                className={`md:hidden transition-colors duration-300 ${
-                  isScrolled ? "text-foreground" : "text-white"
-                }`}
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                data-testid="button-mobile-menu"
-              >
-                {isMobileMenuOpen ? (
-                  <X className="w-6 h-6" />
-                ) : (
-                  <Menu className="w-6 h-6" />
-                )}
-              </Button>
-            </div>
-
             {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`md:hidden transition-colors duration-300 ${
+                isScrolled ? "text-foreground" : "text-white"
+              }`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </Button>
           </div>
         </div>
       </motion.nav>
