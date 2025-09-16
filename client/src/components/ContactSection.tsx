@@ -7,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useMutation } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
 import quranImg from '@assets/generated_images/Open_Quran_with_calligraphy_7f785852.png';
 
 export default function ContactSection() {
@@ -15,8 +17,36 @@ export default function ContactSection() {
     email: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const contactMutation = useMutation({
+    mutationFn: async (data: typeof formData) => {
+      return await apiRequest('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    },
+    onSuccess: (response) => {
+      toast({
+        title: "Message Sent Successfully!",
+        description: response.message || "We'll get back to you within 24 hours. Jazak Allah Khair!",
+      });
+      setFormData({ name: '', email: '', message: '' });
+    },
+    onError: (error: any) => {
+      const errorMessage = error?.errors?.[0]?.message || 
+                          error?.message || 
+                          "Something went wrong. Please try again.";
+      toast({
+        title: "Failed to Send Message",
+        description: errorMessage,
+        variant: "destructive",
+      });
+    }
+  });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -27,21 +57,18 @@ export default function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    // TODO: remove mock functionality - implement real form submission
-    console.log('Form submitted:', formData);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours. Jazak Allah Khair!",
-    });
-    
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    // Basic client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      toast({
+        title: "Please fill in all fields",
+        description: "Name, email, and message are required.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    contactMutation.mutate(formData);
   };
 
   const handleWhatsApp = () => {
@@ -128,11 +155,11 @@ export default function ContactSection() {
                   
                   <Button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={contactMutation.isPending}
                     className="w-full bg-primary hover:bg-primary/90 font-semibold"
                     data-testid="button-submit-form"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {contactMutation.isPending ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>

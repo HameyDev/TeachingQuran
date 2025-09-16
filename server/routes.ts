@@ -52,11 +52,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get all contact submissions (for admin/debug purposes)
+  // Get contact submissions count (admin/debug - no PII exposed)
   app.get("/api/contact", async (req, res) => {
     try {
       const submissions = await storage.getAllContactSubmissions();
-      res.json({ submissions });
+      res.json({ 
+        success: true,
+        count: submissions.length,
+        message: `${submissions.length} contact submission${submissions.length !== 1 ? 's' : ''} received`
+      });
     } catch (error) {
       console.error("Error fetching contact submissions:", error);
       res.status(500).json({
